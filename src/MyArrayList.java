@@ -24,7 +24,18 @@ public class MyArrayList implements List {
 
 	@Override
 	public void add(int index, Object element) {
-		// TODO Auto-generated method stub
+		Object[] tempStorage = new Object[storage.length + 1];
+		
+		for(int x = 0; x < index; x++) {
+			tempStorage[x] = storage[x];
+		}
+		
+		for(int x = index; x < storage.length; x++) {
+			tempStorage[x+1] = storage[x];
+		}
+		tempStorage[index] = element;
+		
+		storage = tempStorage;
 
 	}
 
@@ -43,12 +54,18 @@ public class MyArrayList implements List {
 	@Override
 	public void clear() {
 		// TODO Auto-generated method stub
+		storage = new Object[0];
 
 	}
 
 	@Override
 	public boolean contains(Object o) {
-		// TODO Auto-generated method stub
+
+		for(int x = 0; x < storage.length; x++) {
+			if(storage[x].equals(o)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -66,13 +83,20 @@ public class MyArrayList implements List {
 	@Override
 	public int indexOf(Object o) {
 		// TODO Auto-generated method stub
-		return 0;
+		int indexOfObj = -1;
+		for(int x = 0; x < storage.length; x++) {
+			if(storage[x].equals(o)) {
+				indexOfObj = x;
+				break;
+			}
+		}
+		return indexOfObj;
 	}
 
 	@Override
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
-		return false;
+		return storage.length == 0;
 	}
 
 	@Override
@@ -107,7 +131,6 @@ public class MyArrayList implements List {
 
 	@Override
 	public Object remove(int index) {
-		// TODO Auto-generated method stub
 		Object[] tempStorage = new Object[storage.length - 1];
 		boolean indexFound = false;
 		
@@ -138,7 +161,7 @@ public class MyArrayList implements List {
 
 	@Override
 	public Object set(int index, Object element) {
-		// TODO Auto-generated method stub
+		storage[index] = element;
 		return null;
 	}
 
@@ -150,7 +173,11 @@ public class MyArrayList implements List {
 	@Override
 	public List subList(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
-		return null;
+		MyArrayList newSubList = new MyArrayList();
+		for(int x = fromIndex; x >= fromIndex && x <= toIndex; x++) {
+			newSubList.add(x, storage[x]);
+		}
+		return newSubList;
 	}
 
 	@Override

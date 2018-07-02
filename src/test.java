@@ -2,7 +2,7 @@
 public class test {
 
 	public static void main(String[] args) {
-		MyArrayList test = new MyArrayList();
+		MyArrayList<String> test = new MyArrayList<String>();
 		test.add("Apple");
 		test.add("Apple");
 		test.add("Bannana");
@@ -78,7 +78,15 @@ public class test {
 		test.add("Tomato");
 		test.add("Tomato");
 		
-		MyArrayList test2 = (MyArrayList) test.subList(8, 10); //fix this
+		for (int x = 0; x < test.size(); x++) {
+			System.out.println(test.get(x) + ":" + x);
+		}
+		
+		System.out.println("---------------------------------");
+		System.out.println("---------------------------------");
+		
+		
+		MyArrayList test2 = (MyArrayList) test.subList(5, 12); //fix this
 		
 		for (int x = 0; x < test2.size(); x++) {
 			System.out.println(test2.get(x) + ":" + x);

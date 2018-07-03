@@ -90,31 +90,30 @@ public class MyLinkedList<E> {
 		return newList;
 
 	}
-	
+
 	public int indexOf(E element) {
 		Node<E> temp = head.getNextNode();
 		int index = 0;
-		
-		while(!temp.getStorage().equals(element)) {
+
+		while (!temp.getStorage().equals(element)) {
 			temp = temp.getNextNode();
 			index++;
 		}
-		
+
 		return index;
 	}
-	
+
 	public int lastIndexOf(E element) {
 		Node<E> temp = head.getNextNode();
 		int index = 0;
 		for (int x = 0; x < size() - 1; x++) {
-			if(temp.getStorage().equals(element)) {
+			if (temp.getStorage().equals(element)) {
 				index = x;
 			}
 			temp = temp.getNextNode();
 		}
-		
+
 		return index;
 	}
-	
 
 }

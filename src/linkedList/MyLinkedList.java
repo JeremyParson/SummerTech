@@ -103,5 +103,18 @@ public class MyLinkedList<E> {
 		return index;
 	}
 	
+	public int lastIndexOf(E element) {
+		Node<E> temp = head.getNextNode();
+		int index = 0;
+		for (int x = 0; x < size() - 1; x++) {
+			if(temp.getStorage().equals(element)) {
+				index = x;
+			}
+			temp = temp.getNextNode();
+		}
+		
+		return index;
+	}
+	
 
 }

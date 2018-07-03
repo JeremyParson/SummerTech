@@ -54,9 +54,27 @@ public class MainProcess {
 		}
 		
 		System.out.println("---------------------------");
-		System.out.println("----------sublist----------");
+		System.out.println("----------index of---------");
 		
 		System.out.println(test.indexOf("Tomato"));
+		
+		System.out.println("---------------------------");
+		System.out.println("--------last index of------");
+		
+		test2.add("Apple");
+		test2.add("Apple");
+		test2.add("Apple");
+		test2.add("Apple");
+		test2.add("Apple");
+		test2.add("Apple");
+		test2.add("Apple");
+		test2.add("Grapefruit");
+		
+		for (int x = 0; x < test2.size(); x++) {
+			System.out.println(test2.get(x) + " " + x);
+		}
+		
+		System.out.println(test2.lastIndexOf("Apple"));
 	}
 
 }

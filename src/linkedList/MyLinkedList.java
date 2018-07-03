@@ -72,7 +72,7 @@ public class MyLinkedList<E> {
 			temp = temp.getNextNode();
 			arr[x] = temp.getStorage();
 		}
-		return  arr;
+		return arr;
 	}
 
 	public MyLinkedList sublist(int from, int to) {
@@ -83,11 +83,25 @@ public class MyLinkedList<E> {
 		}
 		newList.add(temp.getStorage());
 
-		for (int x = from; x <= to; x++) {
+		for (int x = from + 1; x <= to; x++) {
+			temp = temp.getNextNode();
 			newList.add(temp.getStorage());
 		}
-			return newList;
-		
+		return newList;
+
 	}
+	
+	public int indexOf(E element) {
+		Node<E> temp = head.getNextNode();
+		int index = 0;
+		
+		while(!temp.getStorage().equals(element)) {
+			temp = temp.getNextNode();
+			index++;
+		}
+		
+		return index;
+	}
+	
 
 }

@@ -75,6 +75,23 @@ public class MainProcess {
 		}
 
 		System.out.println(test2.lastIndexOf("Apple"));
+		
+		System.out.println("---------------------------");
+		System.out.println("------------set------------");
+		
+		test2.set(9, "Apple");
+		
+		for (int x = 0; x < test2.size(); x++) {
+			System.out.println(test2.get(x) + " " + x);
+		}
+		
+		System.out.println("---------------------------");
+		System.out.println("----------Contains---------");
+		
+		System.out.println("Does the array contain a banana?");
+		System.out.println(test2.contains("Banana"));
+		System.out.println("Does it contain an Apple?");
+		System.out.println(test2.contains("Apple"));
 	}
 
 }

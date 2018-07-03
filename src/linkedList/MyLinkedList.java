@@ -116,4 +116,32 @@ public class MyLinkedList<E> {
 		return index;
 	}
 
+	public void clear() {
+		head.setNextNode(null);
+	}
+
+	public boolean isEmpty() {
+		return !head.hasNext();
+	}
+
+	public void set(int index, E element) {
+		Node<E> temp = head;
+		for (int x = 0; x <= index; x++) {
+			temp = temp.getNextNode();
+		}
+		temp.setStorage(element);
+	}
+
+	public boolean contains(E element) {
+		Node<E> temp = head;
+		boolean itContains = false;
+		for (int x = 0; x < size() - 1; x++) {
+			temp = temp.getNextNode();
+			if (temp.getStorage().equals(element)) {
+				itContains = true;
+			}
+		}
+		return itContains;
+	}
+
 }

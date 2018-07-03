@@ -63,4 +63,31 @@ public class MyLinkedList<E> {
 		}
 		temp.setNextNode(temp.getNextNode().getNextNode());
 	}
+
+	public E[] toArray() {
+		@SuppressWarnings("unchecked")
+		E[] arr = (E[]) new Object[size()];
+		Node<E> temp = head;
+		for (int x = 0; x < arr.length; x++) {
+			temp = temp.getNextNode();
+			arr[x] = temp.getStorage();
+		}
+		return  arr;
+	}
+
+	public MyLinkedList sublist(int from, int to) {
+		MyLinkedList<E> newList = new MyLinkedList<E>();
+		Node<E> temp = head;
+		for (int x = 0; x <= from; x++) {
+			temp = temp.getNextNode();
+		}
+		newList.add(temp.getStorage());
+
+		for (int x = from; x <= to; x++) {
+			newList.add(temp.getStorage());
+		}
+			return newList;
+		
+	}
+
 }

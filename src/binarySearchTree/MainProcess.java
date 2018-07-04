@@ -10,7 +10,11 @@ public class MainProcess {
 		test.add(3);
 		test.add(14);
 		
-		test.get(14);
+		int test2 = test.get(14);
+		System.out.println(test2);
+		
+		test2 = test.get(2);
+		System.out.println(test2);
 	}
 
 }

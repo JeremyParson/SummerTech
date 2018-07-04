@@ -11,6 +11,11 @@ public class Tree {
 					while (temp.hasRightChild()) {
 						temp = temp.getRightNode();
 					}
+					if (input > temp.getStorage()) {
+						temp.setRightNode(new Node(input));
+					}else {
+						temp.setLeftNode(new Node(input));
+					}
 				} else {
 					temp.setRightNode(new Node(input));
 				}
@@ -18,6 +23,11 @@ public class Tree {
 				if (temp.hasLeftChild()) {
 					while (temp.hasLeftChild()) {
 						temp = temp.getLeftNode();
+					}
+					if (input > temp.getStorage()) {
+						temp.setRightNode(new Node(input));
+					}else {
+						temp.setLeftNode(new Node(input));
 					}
 				} else {
 					temp.setLeftNode(new Node(input));
@@ -33,21 +43,38 @@ public class Tree {
 
 	}
 
-	public Node get(int input) {
+	public int get(int input) {
 		Node temp = root;
-		while (input != temp.getLeftNode().getStorage() && input != temp.getLeftNode().getStorage()) {
+		while (true) {
 			if (input < temp.getStorage()) {
-				temp = temp.getLeftNode();
+
+				if (temp.hasLeftChild()) {
+					if (input == temp.getLeftNode().getStorage()) {
+						temp = temp.getLeftNode();
+						break;
+					}else {
+						temp = temp.getLeftNode();
+					}
+				}else {
+					System.out.println("Node does not exist");
+				}
 			} else {
-				temp = temp.getRightNode();
+				if (temp.hasRightChild()) {
+					if (input == temp.getRightNode().getStorage()) {
+						temp = temp.getRightNode();
+						break;
+					}else {
+						temp = temp.getRightNode();
+					}
+				}else {
+					System.out.println("Node does not exist");
+				}
 			}
 		}
-		if (input == temp.getLeftNode().getStorage()) {
-			temp = temp.getLeftNode();
-		} else if (input == temp.getRightNode().getStorage()) {
-			temp = temp.getRightNode();
+		if (input == temp.getStorage()) {
+			return temp.getStorage();
 		}
-		return temp;
+		return -1;
 	}
 
 	public void size() {

@@ -33,7 +33,7 @@ public class Tree {
 
 	}
 
-	public void get(int input) {
+	public Node get(int input) {
 		Node temp = root;
 		while (input != temp.getLeftNode().getStorage() && input != temp.getLeftNode().getStorage()) {
 			if (input < temp.getStorage()) {
@@ -42,7 +42,12 @@ public class Tree {
 				temp = temp.getRightNode();
 			}
 		}
-
+		if (input == temp.getLeftNode().getStorage()) {
+			temp = temp.getLeftNode();
+		} else if (input == temp.getRightNode().getStorage()) {
+			temp = temp.getRightNode();
+		}
+		return temp;
 	}
 
 	public void size() {

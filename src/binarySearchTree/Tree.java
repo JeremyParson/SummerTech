@@ -128,43 +128,21 @@ public class Tree {
 	public void remove(int input) {
 		Node temp = root;
 		while (true) {
-			if (input < temp.getStorage()) {
+			if (input > temp.getStorage()) {
 
-				if (temp.hasLeftChild()) {
-					if (input == temp.getLeftNode().getStorage()) {
-						if(temp.getRightNode().hasRightChild()) {
-							temp.setLeftNode(temp.getLeftNode().getRightNode());
-						}else {
-							temp.setRightNode(null);
-						}
-						
-						if(temp.getLeftNode().hasLeftChild()) {
-							temp.setLeftNode(temp.getLeftNode().getLeftNode());
-							}else {
-								temp.setLeftNode(null);
-							}
-						break;
-					} else {
-						temp = temp.getLeftNode();
-					}
-				} else {
-					System.out.println("Node does not exist");
-					break;
-				}
-			} else {
 				if (temp.hasRightChild()) {
 					if (input == temp.getRightNode().getStorage()) {
-						if(temp.getLeftNode().hasRightChild()) {
-							temp.setLeftNode(temp.getLeftNode().getRightNode());
-						}else {
+						if (temp.getRightNode().hasRightChild()) {
+							temp.setRightNode(temp.getRightNode().getRightNode());
+						} else {
 							temp.setRightNode(null);
 						}
-						
-						if(temp.getLeftNode().hasLeftChild()) {
+
+						if (temp.getLeftNode().hasLeftChild()) {
 							temp.setLeftNode(temp.getLeftNode().getLeftNode());
-							}else {
-								temp.setLeftNode(null);
-							}
+						} else {
+							temp.setLeftNode(null);
+						}
 						break;
 					} else {
 						temp = temp.getRightNode();
@@ -173,9 +151,30 @@ public class Tree {
 					System.out.println("Node does not exist");
 					break;
 				}
+			} else {
+				if (temp.hasLeftChild()) {
+					if (input == temp.getLeftNode().getStorage()) {
+						if (temp.getLeftNode().hasRightChild()) {
+							temp.setLeftNode(temp.getLeftNode().getRightNode());
+						} else {
+							temp.setLeftNode(null);
+						}
+
+						if (temp.getRightNode().hasLeftChild()) {
+							temp.setRightNode(temp.getRightNode().getLeftNode());
+						} else {
+							temp.setRightNode(null);
+						}
+						break;
+					} else {
+						temp = temp.getLeftNode();
+					}
+				} else {
+					System.out.println("Node does not exist");
+					break;
+				}
 			}
 		}
-		
 
 	}
 }

@@ -35,8 +35,8 @@ public class MainProcess {
 		System.out.println(index);
 		System.out.println("---------------------------");
 		System.out.println("---------------------------");
+		test.add(1);
 		test.remove(2);
-		test.get(2);
+		System.out.println(test.getIndex(2, 2));
 	}
-
 }

@@ -1,5 +1,7 @@
 package binarySearchTree;
 
+import linkedList.Vector2;
+
 public class Tree {
 	Node root = new Node(0);
 
@@ -75,6 +77,15 @@ public class Tree {
 			return temp.getStorage();
 		}
 		return -1;
+	}
+	
+	public Vector2<Integer> getIndex(int x, int y) {
+		
+		return new Vector2<Integer>(-1,-1);
+	}
+	
+	public Vector2<Integer> indexOf() {
+		return new Vector2<Integer>(-1,-1);
 	}
 
 	public void size() {

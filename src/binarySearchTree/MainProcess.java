@@ -33,6 +33,10 @@ public class MainProcess {
 		test.set(4, 5, -14);
 		index = test.getIndex(4, 5);
 		System.out.println(index);
+		System.out.println("---------------------------");
+		System.out.println("---------------------------");
+		test.remove(2);
+		test.get(2);
 	}
 
 }

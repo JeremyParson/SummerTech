@@ -8,7 +8,7 @@ public class Tree {
 	public void add(int input) {
 		Node temp = root;
 		if (temp.hasNext()) {
-			if (input > temp.getStorage()) {
+			if (input > temp.getStorage() || input == temp.getStorage()) {
 				if (temp.hasRightChild()) {
 					while (temp.hasRightChild()) {
 						temp = temp.getRightNode();
@@ -59,6 +59,7 @@ public class Tree {
 					}
 				}else {
 					System.out.println("Node does not exist");
+					break;
 				}
 			} else {
 				if (temp.hasRightChild()) {
@@ -70,6 +71,7 @@ public class Tree {
 					}
 				}else {
 					System.out.println("Node does not exist");
+					break;
 				}
 			}
 		}
@@ -79,24 +81,68 @@ public class Tree {
 		return -1;
 	}
 	
-	public Vector2<Integer> getIndex(int x, int y) {
+	public int getIndex(int x, int y) {
+		Node temp = root;
+		int xPosition = 0;
+		int depth= 0;
 		
-		return new Vector2<Integer>(-1,-1);
+		while(x != xPosition && y != depth) {
+			if(x > xPosition) {
+				temp = temp.getRightNode();
+				xPosition++;
+				depth++;
+			}
+			if(x < xPosition) {
+				temp = temp.getLeftNode();
+				xPosition--;
+				depth++;
+			}
+		}
+		return temp.getStorage();
 	}
 	
 	public Vector2<Integer> indexOf() {
 		return new Vector2<Integer>(-1,-1);
 	}
 
-	public void size() {
 
+	public void set(int x,int y, int input) {
+		Node temp = root;
+		int xPosition = 0;
+		int depth= 0;
+		
+		while(x != xPosition && y != depth) {
+			if(x > xPosition) {
+				temp = temp.getRightNode();
+				xPosition++;
+				depth++;
+			}
+			if(x < xPosition) {
+				temp = temp.getLeftNode();
+				xPosition--;
+				depth++;
+			}
+		}
+		temp.setStorage(input);
 	}
 
-	public void add(int index, int input) {
-
-	}
-
-	public void remove(int index) {
-
+	public void remove(int x, int y) {
+		Node temp = root;
+		int xPosition = 0;
+		int depth= 0;
+		
+		while(x != xPosition && y != depth) {
+			if(x + 1 > xPosition) {
+				temp = temp.getRightNode();
+				xPosition++;
+				depth++;
+			}
+			if(x - 1 < xPosition) {
+				temp = temp.getLeftNode();
+				xPosition--;
+				depth++;
+			}
+		}
+		
 	}
 }

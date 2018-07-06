@@ -13,7 +13,12 @@ public class MyHashMap {
 	}
 
 	public void put(String key, int value) {
-
+		values[hash(key)] = value;
+		keys[hash(key)] = key;
+	}
+	
+	public int get(String key) {
+		return values[hash(key)];
 	}
 
 	public int hash(String key) {
@@ -24,13 +29,6 @@ public class MyHashMap {
 		}
 		return Math.abs(y % keys.length);
 		//return Math.abs(test(key, 0) % keys.length);
-	}
-	
-	private int test(String key, int x) {
-		if(x == key.length()) {
-			return 1;
-		}
-		return key.charAt(x) * test(key, x + 1);
 	}
 
 }

@@ -29,9 +29,9 @@ public class MyHashMap {
 		}
 	}
 	
-	public int get(String key) {
+	public String get(String key) {
 		int index = hash(key);
-		return keys[index].indexOf(key);
+		return keys[index].get(keys[index].indexOf(keys));
 	}
 
 	private int hash(String key) {

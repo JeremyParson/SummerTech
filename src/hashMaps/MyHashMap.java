@@ -17,8 +17,10 @@ public class MyHashMap {
 
 	public void put(String key, int value) {
 		int index = hash(key);
+		if(keys[index] == null) {
 		values[index] = new LinkedList<Integer>();
 		keys[index] = new LinkedList<String>();
+		}
 		values[index].add(value);
 		keys[index].add(key);
 		
@@ -29,9 +31,9 @@ public class MyHashMap {
 		}
 	}
 	
-	public String get(String key) {
+	public Integer get(String key) {
 		int index = hash(key);
-		return keys[index].get(keys[index].indexOf(keys));
+		return values[index].get(keys[index].indexOf(key));
 	}
 
 	private int hash(String key) {

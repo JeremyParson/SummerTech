@@ -31,8 +31,7 @@ public class MyHashMap {
 	
 	public int get(String key) {
 		int index = hash(key);
-		int valIndex = keys[index].indexOf(key);
-		return values[index].get(valIndex);
+		return keys[index].indexOf(key);
 	}
 
 	private int hash(String key) {
@@ -48,15 +47,18 @@ public class MyHashMap {
 	private void resize() {
 		//Resizing should be the square of the previous array length
 		counter = 0;
-		int[] tempValues = Arrays.copyOf(values, values.length);
-		String[] tempKeys = Arrays.copyOf(keys, keys.length);
+		LinkedList<Integer>[] tempValues = Arrays.copyOf(values, values.length);
+		LinkedList<String>[] tempKeys = Arrays.copyOf(keys, keys.length);
 		
-		values = new int[values.length * values.length];
-		keys = new String[keys.length * keys.length];
-		
+		values = new LinkedList[values.length * values.length];
+		keys = new LinkedList[keys.length * keys.length];
+
 		for(int x = 0; x < tempKeys.length - 1; x++) {
+			
 			if(tempKeys[x] != null) {
-				put(tempKeys[x],tempValues[x]);
+				for(int y = 0; y < tempKeys[x].size(); y++) {
+				put(tempKeys[x].get(y),tempValues[x].get(y));
+				}
 			}
 		}
 	}

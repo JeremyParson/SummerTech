@@ -5,14 +5,15 @@ import java.util.LinkedList;
 
 public class MyHashMap {
 	
-	private int counter;
-	private LinkedList<Integer>[] values;
-	private LinkedList<String>[] keys;
+	private int counter;//This will be used to count the amount of linked lists in the array in which will depict weather or not to increase the size of the hashmap 
+	private LinkedList<Integer>[] values;//This will contain all the linked lists involving the integers values
+	private LinkedList<String>[] keys;//This will contain all the linked lists involving the keys that access the values within the values array
 
+	@SuppressWarnings("unchecked")
 	public MyHashMap() {
-		values = new LinkedList[8];
-		keys = new LinkedList[8];
-		counter = 0;
+		values = new LinkedList[8];//This initializes the value array to 8 spaces
+		keys = new LinkedList[8];//This initializes the key array to 8 spaces
+		counter = 0;//This initializes the counter to 0;
 	}
 
 	public void put(String key, int value) {
@@ -37,6 +38,8 @@ public class MyHashMap {
 	}
 
 	private int hash(String key) {
+		//Implement this hashing function:
+		//s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]
 		int y = 0;
 		for (int x = 0; x < key.length() - 1; x++) {
 			y = key.charAt(x);
@@ -46,6 +49,7 @@ public class MyHashMap {
 		//return Math.abs(test(key, 0) % keys.length);
 	}
 	
+	@SuppressWarnings("unchecked")
 	private void resize() {
 		//Resizing should be the square of the previous array length
 		counter = 0;

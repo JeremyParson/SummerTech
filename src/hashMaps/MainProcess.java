@@ -2,8 +2,7 @@ package hashMaps;
 
 public class MainProcess {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) { 
 		MyHashMap test = new MyHashMap();
 		test.put("E559D1FB1B687811", 1);
 		test.put("gdasgdsgasdgO0WR", 2);
